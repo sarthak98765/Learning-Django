@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block start %}
+        <h1>Home</h1>
+        <p>Welcome to the home page.how are you allllll</p>
+
+        <a href="/contact/"> 
+
+            Contact
+        </a>
+        <a href="/about/"> 
+
+          | About
+      </a>
+        <table>
+            <tr>
+              <th>S.NO</th>
+              <th>Name</th>
+              <th>Age</th>
+            </tr>
+            {% for people in peoples %}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{people.name}}</td>
+              <td>{{people.age}}</td>
+              <td>  
+                {% if people.age > 18 %}
+                  Adult
+                {% else %}
+                  Minor
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+          {% endblock %}
